@@ -1,35 +1,14 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Menu, X, Home,
-  User,
-  Briefcase,
-  Mail,
-  FolderKanban,
-  type LucideIcon,
+  Menu,
+  X
 } from 'lucide-react';
-
-interface INavClick {
-  e: React.MouseEvent<HTMLAnchorElement, MouseEvent>;
-  targetId: string;
-}
-
-interface INavigation {
-  name: string;
-  id: string;
-  icon: LucideIcon;
-}
+import type { INavClick } from '../assets/interface';
+import { menuItems } from '../assets/constants';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const menuItems: INavigation[] = [
-    { name: 'Home', id: 'home', icon: Home },
-    { name: 'About', id: 'about', icon: User },
-    { name: 'Experience', id: 'experience', icon: Briefcase },
-    { name: 'Projects', id: 'projects', icon: FolderKanban },
-    { name: 'Contact', id: 'contact', icon: Mail }
-  ];
 
   const handleNavClick = ({ e, targetId }: INavClick) => {
     e.preventDefault();
@@ -48,7 +27,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center h-24">
           <div className="w-full flex justify-center ">
-            <div className="hidden md:flex space-x-16 align-middle justify-center">
+            <div className="hidden md:flex space-x-16 align-middle justify-center lg:bg-blue-500 md:bg-amber-500 sm:bg-red-500">
               {menuItems.map((item) => (
                 <motion.a
                   key={item.name}
@@ -56,14 +35,12 @@ const Navigation = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
                   onClick={(e) => handleNavClick({ e, targetId: item.id })}
-                  className="text-gray-300 hover:text-white transition-colors duration-300 size-12 flex items-center justify-center"
+                  className="size-14 flex items-center justify-center rounded-full hover:shadow-[0_0_20px_6px_rgba(34,197,94,0.7)] hover:bg-green-100 transition-all duration-300 group"
                 >
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "tween", stiffness: 300 }}
-                  >
-                    <item.icon size={32} />
-                  </motion.div>
+                  <item.icon
+                    size={32}
+                    className="stroke-green-500 transition-all duration-300 group-hover:stroke-green-800 group-hover:scale-110"
+                  />
                 </motion.a>
               ))}
             </div>

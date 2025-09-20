@@ -1,7 +1,7 @@
 
 import { motion } from 'framer-motion';
 import Navigation from './components/Navigation';
-import Hero from './components/Hero';
+import Home from './components/Home';
 import About from './components/About';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
@@ -17,7 +17,7 @@ const App = () => {
     >
       <Navigation />
       <div>
-        <Hero />
+        <Home />
         <About />
         <Experience />
         <Projects />
