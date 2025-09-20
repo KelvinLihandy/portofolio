@@ -16,13 +16,13 @@ const App = () => {
       transition={{ duration: 0.5 }}
     >
       <Navigation />
-      <main className="bg-black">
+      <div>
         <Hero />
         <About />
         <Experience />
         <Projects />
         <Contact />
-      </main>
+      </div>
     </motion.div>
   );
 }
