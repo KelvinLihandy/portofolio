@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import Navigation from './components/Navigation';
 import Home from './components/Home';
