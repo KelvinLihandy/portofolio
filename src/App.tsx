@@ -21,7 +21,7 @@ const App = () => {
         <About />
         <Experience />
         <Projects />
-        <Contact />
+        {/* <Contact /> */}
       </div>
     </motion.div>
   );

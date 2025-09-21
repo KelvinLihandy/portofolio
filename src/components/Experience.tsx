@@ -1,74 +1,46 @@
 import { motion } from 'framer-motion';
+import { experienceItems } from '../assets/constants';
 
 const Experience = () => {
-  const experiences = [
-    {
-      title: 'Senior Software Engineer',
-      company: 'Tech Company Name',
-      period: '2023 - Present',
-      description: [
-        'Led development of key features resulting in 40% increase in user engagement',
-        'Managed a team of 5 developers and implemented agile methodologies',
-        'Architected and deployed scalable microservices using Node.js and AWS'
-      ]
-    },
-    {
-      title: 'Software Engineer',
-      company: 'Previous Company Name',
-      period: '2021 - 2023',
-      description: [
-        'Developed and maintained multiple full-stack applications using React and Node.js',
-        'Improved application performance by 60% through code optimization',
-        'Collaborated with UX team to implement responsive designs'
-      ]
-    },
-    {
-      title: 'Junior Developer',
-      company: 'First Company Name',
-      period: '2019 - 2021',
-      description: [
-        'Built and maintained client-facing web applications',
-        'Implemented responsive designs and ensured cross-browser compatibility',
-        'Participated in code reviews and contributed to team documentation'
-      ]
-    }
-  ];
 
   return (
-    <section id="experience" className="py-20 bg-black">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-4xl font-bold text-center text-white mb-16">Experience</h2>
-          
-          <div className="max-w-4xl mx-auto">
-            {experiences.map((exp, index) => (
+    <section
+      id="experience"
+      className="poppins-regular min-h-screen flex justify-center bg-black text-white py-12 md:py-20"
+    >
+      <div className='flex flex-col w-150'>
+        <div className="text-center text-green-700 poppins-bold text-6xl py-20">
+          My Journey
+        </div>
+        <div>
+          <div className=''>
+            {[...experienceItems].reverse().map((item, index) => (
               <motion.div
-                key={exp.period}
+                key={item.period}
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="mb-12 relative pl-8 border-l-2 border-green-500"
+                className="lg:mb-12 lg:relative lg:pl-8 lg:border-l-2 lg:border-green-500"
               >
-                <div className="absolute w-4 h-4 bg-green-500 rounded-full -left-[9px] top-0" />
-                
-                <div className="bg-gray-900 p-6 rounded-lg">
-                  <span className="text-green-400 text-sm font-semibold">
-                    {exp.period}
-                  </span>
-                  <h3 className="text-xl font-bold text-white mt-2">
-                    {exp.title}
-                  </h3>
-                  <h4 className="text-gray-400 mb-4">
-                    {exp.company}
-                  </h4>
+                <div className="hidden lg:block absolute w-4 h-4 bg-green-500 rounded-full -left-[9px] top-0" />
+                <motion.div
+                  whileHover={{ x: 20 }}
+                  transition={{ type: 'tween', stiffness: 300 }}
+                  className="bg-gray-900 p-6 rounded-lg hover:shadow-[60px_0_80px_-10px_rgba(34,197,94,0.7)] transition-all duration-100"
+                >
+                  <div className="text-green-400 text-lg font-semibold flex gap-2">
+                    <div>{item.period}</div>
+                    <div className="text-white flex">
+                      <div>(</div>
+                      <div className="poppins-regular-italic">{item.type}</div>
+                      <div>)</div>
+                    </div>
+                  </div>
+                  <div className="text-2xl font-bold text-white mt-2">{item.position}</div>
+                  <div className="text-gray-400 mb-4">{item.company}</div>
                   <ul className="space-y-2">
-                    {exp.description.map((point, idx) => (
+                    {item.description.map((point, idx) => (
                       <motion.li
                         key={idx}
                         initial={{ opacity: 0, y: 10 }}
@@ -77,15 +49,15 @@ const Experience = () => {
                         transition={{ duration: 0.5, delay: index * 0.2 + idx * 0.1 }}
                         className="text-gray-300"
                       >
-                        • {point}
+                        •&nbsp;&nbsp;{point}
                       </motion.li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

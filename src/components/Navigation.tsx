@@ -23,7 +23,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed w-full z-50 bg-black/80 backdrop-blur-sm">
+    <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center h-24">
           <div className="w-full flex justify-center ">

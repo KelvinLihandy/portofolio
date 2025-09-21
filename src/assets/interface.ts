@@ -17,7 +17,15 @@ export interface IContacts {
   icon: LucideIcon;
 }
 
-export interface ISkills{
+export interface ISkills {
   name: string;
   icon: string;
+}
+
+export interface IExperiences {
+  position: string;
+  type: string;
+  company: string;
+  period: string;
+  description: string[];
 }

@@ -1,12 +1,11 @@
 import { BrainCircuit, Briefcase, Database, Download, FolderKanban, Github, Home, Linkedin, Mail, Server, User } from "lucide-react";
-import type { IContacts, INavigation, ISkills } from "./interface";
+import type { IContacts, IExperiences, INavigation, ISkills } from "./interface";
 
 export const menuItems: INavigation[] = [
     { name: 'Home', id: 'home', icon: Home },
     { name: 'About', id: 'about', icon: User },
     { name: 'Experience', id: 'experience', icon: Briefcase },
     { name: 'Projects', id: 'projects', icon: FolderKanban },
-    // { name: 'Contact', id: 'contact', icon: Mail }
 ];
 
 export const contactItems: IContacts[] = [
@@ -45,3 +44,16 @@ export const skillItems: ISkills[] = [
   {name: 'Azure', icon: '../public/icons/azure-original.svg'},
   {name: 'Git', icon: '../public/icons/git-original.svg'},
 ];
+
+export const experienceItems: IExperiences[] = [
+  {
+    position: "Associate Member",
+    type: "Part-Time",
+    company: "Bina Nusantara IT Division",
+    period: "Mar 2025 - Present",
+    description: [
+      "Developed fullstack web application",
+      "Participated in company agile scrum framework"
+    ],
+  },
+]

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Profile from '../assets/image.png';
-import { contactItems, skillItems, topItems } from '../assets/constants';
+import { contactItems, topItems } from '../assets/constants';
 import { MapPin } from 'lucide-react';
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
   }, []);
 
   const DataCardContent = (
-    <div className="flex flex-col items-center gap-6 w-full">
+    <div className="flex flex-col items-center gap-10 w-full">
       <motion.div
         className="text-5xl font-bold poppins-bold text-center"
         initial={{ scale: 0.88, opacity: 0 }}
@@ -48,7 +48,7 @@ const Home = () => {
         ))}
       </motion.div>
       <motion.div
-        className="flex flex-col gap-4 items-center w-full"
+        className="flex flex-col gap-8 items-center w-full"
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.75, delay: 0.6 }}
