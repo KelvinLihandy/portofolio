@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { motion } from 'framer-motion';
 import Navigation from './components/Navigation';
 import Home from './components/Home';
@@ -20,6 +21,7 @@ const App = () => {
         <Experience />
         <Projects />
       </div>
+      <Analytics />
     </motion.div>
   );
 }
