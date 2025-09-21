@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Profile from '../assets/image.png';
-import { contactItems, skillItems } from '../assets/constants';
+import { contactItems, skillItems, topItems } from '../assets/constants';
 import { MapPin } from 'lucide-react';
 
 const Home = () => {
@@ -14,10 +14,6 @@ const Home = () => {
     window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
   }, []);
-
-  const containerAnim = { initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.75, ease: 'easeOut' } };
-  const entranceLeft = { initial: { opacity: 0, x: -80 }, animate: { opacity: 1, x: 0 }, transition: { duration: 0.75, delay: 0.2, ease: 'easeOut' } };
-  const entranceRight = { initial: { opacity: 0, x: 80 }, animate: { opacity: 1, x: 0 }, transition: { duration: 0.75, delay: 0.35, ease: 'easeOut' } };
 
   const DataCardContent = (
     <div className="flex flex-col items-center gap-6 w-full">
@@ -38,7 +34,7 @@ const Home = () => {
           visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.12, delayChildren: 0.35 } }
         }}
       >
-        {skillItems.map((item) => (
+        {topItems.map((item) => (
           <motion.div
             key={item.name}
             className="border rounded-xl p-3 flex flex-row gap-3 items-center cursor-pointer"
@@ -112,9 +108,9 @@ const Home = () => {
     <section id="home" className="poppins-regular min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-black text-white py-12 md:py-20">
       <motion.div
         className="w-full px-6 md:px-20 py-10 flex justify-center"
-        initial={containerAnim.initial}
-        animate={containerAnim.animate}
-        transition={containerAnim.transition}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.75, ease: 'easeOut' }}
       >
         {isMobile ? (
           <div className="w-full max-w-lg">
@@ -146,10 +142,18 @@ const Home = () => {
           </div>
         ) : (
           <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center gap-8 lg:gap-20">
-            <motion.div className="w-full lg:w-1/2" {...entranceLeft}>
+            <motion.div className="w-full lg:w-1/2"
+              initial={{ opacity: 0, x: -80 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.75, delay: 0.32, ease: 'easeOut' }}
+            >
               {DataCardContent}
             </motion.div>
-            <motion.div className="w-full lg:w-1/2 flex justify-center" {...entranceRight}>
+            <motion.div className="w-full lg:w-1/2 flex justify-center"
+              initial={{ opacity: 0, x: 80 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.75, delay: 0.35, ease: 'easeOut' }}
+            >
               {ImageCardContent}
             </motion.div>
           </div>

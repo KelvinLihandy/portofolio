@@ -1,64 +1,104 @@
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { skillItems } from '../assets/constants';
 
 const About = () => {
-  const skills = [
-    'React', 'TypeScript', 'Node.js', 'Next.js',
-    'TailwindCSS', 'MongoDB', 'PostgreSQL', 'AWS'
-  ];
+  const skillsRef = useRef(null);
+  const isInView = useInView(skillsRef, { amount: 0.25, once: true });
 
   return (
-    <section id="about" className="py-20 bg-gray-900">
-      <div className="container mx-auto px-4">
+    <section
+      id="about"
+      className="poppins-regular min-h-screen flex items-center justify-center bg-black text-white py-12 md:py-20"
+    >
+      <div className="w-full flex flex-col lg:flex-row items-center gap-8 lg:gap-20 lg:p-20 p-10 sm:gap-30 md:gap-30">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          className="w-full lg:w-1/2"
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl font-bold text-center text-white mb-16">About Me</h2>
-          
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="flex flex-col gap-16 md:px-20 lg:px-5">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="text-center text-green-700 poppins-bold lg:text-6xl sm:text-4xl md:text-6xl"
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
             >
-              <h3 className="text-2xl font-semibold text-green-400 mb-4">Who am I?</h3>
-              <p className="text-gray-300 leading-relaxed mb-6">
-                I'm a passionate Full Stack Developer with 5 years of experience in building
-                web applications. I specialize in creating responsive, user-friendly
-                interfaces and robust backend systems.
-              </p>
-              <p className="text-gray-300 leading-relaxed">
-                When I'm not coding, you can find me exploring new technologies,
-                contributing to open source projects, or sharing my knowledge through
-                technical blog posts.
-              </p>
+              About Me
             </motion.div>
+            <div className="flex flex-col text-center mx-10 lg:text-xl md:text-xl gap-12 sm:text-base">
+              <motion.div
+                className="poppins-medium"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                Hi, I'm Kelvin, a full stack developer with leaning interest and skills in backend development
+                while balancing in frontend side. Using experience in my skills, I aim to deliver high-quality solutions
+                that meet current world needs.
+              </motion.div>
+              <motion.div
+                className="poppins-medium-italic text-green-400"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+                viewport={{ once: true }}
+              >
+                While not working on projects, I'm always open to collaboration, new challenges, and opportunities
+                to grow both personally and professionally.
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <h3 className="text-2xl font-semibold text-green-400 mb-4">Skills</h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={skill}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-gray-800 p-4 rounded-lg text-center"
-                  >
-                    <span className="text-gray-200">{skill}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+        <motion.div
+          ref={skillsRef}
+          className="border-3 border-green-700 rounded-xl w-full lg:w-1/2 flex flex-col gap-10 lg:py-10 md:py-5 sm:py-5"
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className="text-center text-green-700 poppins-bold lg:text-6xl sm:text-4xl md:text-6xl"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            My Skills
+          </motion.div>
+          <div className="text-center px-4 pt-2 justify-center">
+            {skillItems.map((item, index) => (
+              <motion.div
+                key={item.name}
+                initial={{ rotateY: 180, opacity: 0 }}
+                animate={
+                  isInView
+                    ? { rotateY: 0, opacity: 1 }
+                    : { rotateY: 180, opacity: 0 }
+                }
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.1,
+                  ease: "easeOut",
+                }}
+                style={{ transformStyle: "preserve-3d" }}
+                whileHover={{ y: -6 }}
+                className="inline-block mx-3 my-2 p-4 bg-white rounded-lg transition-shadow duration-300 ease-in-out hover:shadow-[0_0_40px_10px_rgba(34,197,94,0.7)] group"
+              >
+                <img
+                  src={item.icon}
+                  alt={item.name}
+                  title={item.name}
+                  className="w-16 h-16 sm:w-12 sm:h-12 object-fill"
+                />
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>

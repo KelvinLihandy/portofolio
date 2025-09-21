@@ -14,7 +14,7 @@ const Navigation = () => {
     e.preventDefault();
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
-      const offsetTop = targetId === 'home' ? 0 : targetElement.offsetTop - 24;
+      const offsetTop = targetId === 'home' ? 0 : targetElement.offsetTop;
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
