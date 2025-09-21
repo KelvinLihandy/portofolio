@@ -29,3 +29,12 @@ export interface IExperiences {
   period: string;
   description: string[];
 }
+
+export interface IProjects {
+  title: string;
+  image: string;
+  description: string;
+  repository?: string;
+  deployment?: string;
+  stack: Record<string, string>;
+}

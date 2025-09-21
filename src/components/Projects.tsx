@@ -1,84 +1,123 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import { projectItems } from "../assets/constants";
+import { Github, Globe } from "lucide-react";
 
 const Projects = () => {
-  const projects = [
-    {
-      title: 'Project One',
-      description: 'A full-stack e-commerce platform built with React and Node.js',
-      tech: ['React', 'Node.js', 'MongoDB', 'Express'],
-      image: 'https://via.placeholder.com/500x300',
-      link: '#'
-    },
-    {
-      title: 'Project Two',
-      description: 'Real-time chat application with WebSocket integration',
-      tech: ['Next.js', 'Socket.io', 'TailwindCSS', 'PostgreSQL'],
-      image: 'https://via.placeholder.com/500x300',
-      link: '#'
-    },
-    {
-      title: 'Project Three',
-      description: 'AI-powered content management system',
-      tech: ['TypeScript', 'Python', 'TensorFlow', 'AWS'],
-      image: 'https://via.placeholder.com/500x300',
-      link: '#'
-    }
-  ];
-
   return (
-    <section id="projects" className="py-20 bg-black">
-      <div className="container mx-auto px-4">
+    <section
+      id="projects"
+      className="poppins-regular min-h-screen flex justify-center bg-black text-white py-12 md:py-20"
+    >
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="text-center text-green-700 poppins-bold text-6xl py-20">
+            My Projects
+          </div>
+        </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 pt-2"
         >
-          <h2 className="text-4xl font-bold text-white mb-4">My Projects</h2>
-          <p className="text-gray-400">Some of my recent work</p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {projectItems.map((item, index) => (
             <motion.div
-              key={project.title}
+              key={item.title}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              whileHover={{ y: -10 }}
-              className="bg-gray-900 rounded-xl overflow-hidden"
+              transition={{ duration: 0.3, delay: index * 0.2 }}
+              whileHover={{ y: -20, transition: { duration: 0.2, delay: 0 } }}
+              className="bg-gray-900 rounded-xl mx-2 my-2 border-6 border-green-700 max-w-120 
+             hover:shadow-[0_40px_60px_-10px_rgba(34,197,94,0.7)] flex flex-col 
+             min-h-[600px]"
             >
               <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover"
+                src={item.image}
+                alt={item.title}
+                className="w-full min-h-60 max-h-60 object-cover"
               />
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                <p className="text-gray-400 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="bg-green-600/20 text-green-400 px-3 py-1 rounded-full text-sm"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+              <div className="p-6 flex flex-col flex-grow justify-between h-full">
+                <div>
+                  <div className="text-xl font-bold text-white mb-2">
+                    {item.title}
+                  </div>
+                  <div className="text-white poppins-regular-italic mb-4 text-wrap">
+                    {item.description}
+                  </div>
                 </div>
-                <a
-                  href={project.link}
-                  className="inline-block text-green-400 hover:text-green-300 transition-colors duration-300"
-                >
-                  View Project →
-                </a>
+                <div className="flex flex-col gap-4 mt-auto">
+                  <div className="flex flex-wrap gap-1.5">
+                    {Object.entries(item.stack).map(([name, icon]) => (
+                      <span
+                        key={name}
+                        className="bg-white text-green-400 p-2 rounded-lg flex items-center justify-center"
+                      >
+                        <img
+                          src={icon}
+                          alt={name}
+                          title={name}
+                          className="w-8 h-8 sm:w-6 sm:h-6 object-contain"
+                        />
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex gap-5">
+                    <motion.div
+                      whileTap={{ scale: item.repository ? 0.9 : 1 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                      onClick={() => {
+                        if (item.repository) window.open(item.repository, "_blank");
+                      }}
+                      className={`border-2 rounded-xl px-8 py-2 ${item.repository
+                        ? "border-white hover:border-green-600 transition-colors duration-300 group cursor-pointer"
+                        : "border-red-800 cursor-not-allowed"
+                        }`}
+                    >
+                      <button
+                        className={`${item.repository
+                          ? "text-green-400 group-hover:text-white transition-colors duration-300 cursor-pointer"
+                          : "text-red-800 cursor-not-allowed"
+                          } flex gap-2`}
+                      >
+                        <Github />
+                      </button>
+                    </motion.div>
+                    <motion.div
+                      whileTap={{ scale: item.deployment ? 0.9 : 1 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                      onClick={() => {
+                        if (item.deployment) window.open(item.deployment, "_blank");
+                      }}
+                      className={`border-2 rounded-xl px-8 py-2 ${item.deployment
+                        ? "border-white hover:border-green-600 transition-colors duration-300 group cursor-pointer"
+                        : "border-red-800 cursor-not-allowed"
+                        }`}
+                    >
+                      <button
+                        className={`${item.deployment
+                          ? "text-green-400 group-hover:text-white transition-colors duration-300 cursor-pointer"
+                          : "text-red-800 cursor-not-allowed"
+                          } flex gap-2`}
+                      >
+                        <Globe />
+                      </button>
+                    </motion.div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

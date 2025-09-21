@@ -1,5 +1,7 @@
 import { BrainCircuit, Briefcase, Database, Download, FolderKanban, Github, Home, Linkedin, Mail, Server, User } from "lucide-react";
-import type { IContacts, IExperiences, INavigation, ISkills } from "./interface";
+import type { IContacts, IExperiences, INavigation, IProjects, ISkills } from "./interface";
+import bconnect from "./bconnect_image.png";
+import melanoma_detector from "./melanoma-detector_image.png"
 
 export const menuItems: INavigation[] = [
     { name: 'Home', id: 'home', icon: Home },
@@ -56,4 +58,39 @@ export const experienceItems: IExperiences[] = [
       "Participated in company agile scrum framework"
     ],
   },
-]
+];
+
+export const projectItems: IProjects[] =[
+  {
+    title: "B-Connect",
+    description: "B-Connect is a platform created as a completion requirement for [Software Engineering] course, and designed to be a freelancer platform designed to serve Bina Nusantara University Students for their career growth.",
+    image: bconnect,
+    deployment: "https://b-connect-nu.vercel.app",
+    repository: "https://github.com/KelvinLihandy/b-connect",
+    stack: {
+      "React.js": "../public/icons/react-original.svg",
+      "Tailwind CSS": "../public/icons/tailwindcss-original.svg",
+      "Node.js": "../public/icons/nodejs-original.svg",
+      "Express.js": "../public/icons/express-original.svg",
+      "Framer Motion": "../public/icons/framermotion-original.svg",
+      "Socket.io": "../public/icons/socketio-original.svg",
+      "MongoDB": "../public/icons/mongodb-original.svg",
+      "Google Drive": "../public/icons/google-drive.svg",
+      "Azure": "../public/icons/azure-original.svg",
+    }
+  },
+  {
+    title: "MelanomaDetector",
+    description: "MelanomaDetector is a deep learning AI that can distinguish images of skins affected and not affected by melanoma using CNN with result confidence percentage.",
+    image: melanoma_detector,
+    stack: {
+      "Python": "../public/icons/python-original.svg",
+      "Jupyter Notebook": "../public/icons/jupyter-original.svg",
+      "TensorFlow": "../public/icons/tensorflow-original.svg",
+      "Keras": "../public/icons/keras-original.svg",
+      "OpenCV": "../public/icons/opencv-original.svg",
+      "Matplotlib": "../public/icons/matplotlib-original.svg",
+      "Numpy": "../public/icons/numpy-original.svg"
+    }
+  },
+];

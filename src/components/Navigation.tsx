@@ -23,11 +23,11 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-sm">
+    <nav className="fixed w-full z-50 bg-black/80 backdrop-blur-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center h-24">
           <div className="w-full flex justify-center ">
-            <div className="hidden md:flex space-x-16 align-middle justify-center lg:bg-blue-500 md:bg-amber-500 sm:bg-red-500">
+            <div className="hidden md:flex space-x-16 align-middle justify-center">
               {menuItems.map((item) => (
                 <motion.a
                   key={item.name}
