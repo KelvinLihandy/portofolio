@@ -8,8 +8,8 @@ const Experience = () => {
       id="experience"
       className="poppins-regular min-h-screen flex justify-center bg-black text-white py-12 md:py-20"
     >
-      <div className='flex flex-col w-150'>
-        <div className="text-center text-green-700 poppins-bold text-6xl py-20">
+      <div className='flex flex-col w-90 md:w-120 lg:w-150 gap-8 md:gap-12 lg:gap-20'>
+        <div className="text-center text-green-700 poppins-bold text-3xl sm:text-4xl md:text-6xl lg:text-6xl">
           My Journey
         </div>
         <div>
@@ -29,7 +29,7 @@ const Experience = () => {
                   transition={{ type: 'tween', stiffness: 300 }}
                   className="bg-gray-900 p-6 rounded-lg hover:shadow-[60px_0_80px_-10px_rgba(34,197,94,0.7)] transition-all duration-100"
                 >
-                  <div className="text-green-400 text-lg font-semibold flex gap-2">
+                  <div className="text-green-400 text-xs md:text-base lg:text-lg font-semibold flex gap-2">
                     <div>{item.period}</div>
                     <div className="text-white flex">
                       <div>(</div>
@@ -37,8 +37,8 @@ const Experience = () => {
                       <div>)</div>
                     </div>
                   </div>
-                  <div className="text-2xl font-bold text-white mt-2">{item.position}</div>
-                  <div className="text-gray-400 mb-4">{item.company}</div>
+                  <div className="text-lg md:text-xl lg:text-2xl font-bold text-white mt-2">{item.position}</div>
+                  <div className="text-gray-400 mb-4 text-sm md:text-lg lg:text-xl ">{item.company}</div>
                   <ul className="space-y-2">
                     {item.description.map((point, idx) => (
                       <motion.li
@@ -47,9 +47,10 @@ const Experience = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: index * 0.2 + idx * 0.1 }}
-                        className="text-gray-300"
+                        className="text-gray-300 text-sm md:text-lg lg:text-xl flex flex-row gap-3"
                       >
-                        •&nbsp;&nbsp;{point}
+                        <div> •</div>
+                        <div>{point}</div>
                       </motion.li>
                     ))}
                   </ul>

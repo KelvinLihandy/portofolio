@@ -21,7 +21,7 @@ const About = () => {
         >
           <div className="flex flex-col gap-16 md:px-20 lg:px-5">
             <motion.div
-              className="text-center text-green-700 poppins-bold lg:text-6xl sm:text-4xl md:text-6xl"
+              className="text-center text-green-700 poppins-bold text-3xl sm:text-4xl md:text-6xl lg:text-6xl"
               initial={{ opacity: 0, y: -30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
@@ -57,14 +57,14 @@ const About = () => {
 
         <motion.div
           ref={skillsRef}
-          className="border-3 border-green-700 rounded-xl w-full lg:w-1/2 flex flex-col gap-10 lg:py-10 md:py-5 sm:py-5"
+          className="border-3 border-green-700 rounded-xl w-full lg:w-1/2 flex flex-col lg:gap-10 gap-5 lg:py-10 md:py-6 sm:py-6 py-6"
           initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
           viewport={{ once: true }}
         >
           <motion.div
-            className="text-center text-green-700 poppins-bold lg:text-6xl sm:text-4xl md:text-6xl"
+            className="text-center text-green-700 poppins-bold text-3xl sm:text-4xl md:text-6xl lg:text-6xl"
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
@@ -89,13 +89,13 @@ const About = () => {
                 }}
                 style={{ transformStyle: "preserve-3d" }}
                 whileHover={{ y: -6 }}
-                className="inline-block mx-3 my-2 p-4 bg-white rounded-lg transition-shadow duration-300 ease-in-out hover:shadow-[0_0_40px_10px_rgba(34,197,94,0.7)] group"
+                className="inline-block mx-1 my-0 md:mx-2 md:my-1 lg:mx-2 lg:my-1 p-2 md:p-3 lg:p-4 bg-white rounded-lg transition-shadow duration-300 ease-in-out hover:shadow-[0_0_40px_10px_rgba(34,197,94,0.7)] group"
               >
                 <img
                   src={item.icon}
                   alt={item.name}
                   title={item.name}
-                  className="w-16 h-16 sm:w-12 sm:h-12 object-fill"
+                  className=" w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 lg:w-14 lg:h-14 object-fill"
                 />
               </motion.div>
             ))}
