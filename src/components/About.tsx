@@ -29,7 +29,7 @@ const About = () => {
             >
               About Me
             </motion.div>
-            <div className="flex flex-col text-center mx-10 lg:text-xl md:text-xl gap-12 sm:text-base">
+            <div className="flex flex-col text-center mx-1 lg:mx-10 text-lg lg:text-xl md:text-xl gap-12">
               <motion.div
                 className="poppins-medium"
                 initial={{ opacity: 0, y: 20 }}
