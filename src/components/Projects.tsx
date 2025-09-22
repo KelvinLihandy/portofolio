@@ -9,6 +9,7 @@ const Projects = () => {
       className="poppins-regular min-h-screen flex justify-center bg-black text-white py-12 md:py-20"
     >
       <motion.div
+        className="flex flex-col gap-8 md:gap-12 lg:gap-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -18,7 +19,7 @@ const Projects = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="text-center text-green-700 poppins-bold text-6xl py-20">
+          <div className="text-center text-green-700 poppins-bold text-3xl sm:text-4xl md:text-6xl lg:text-6xl">
             My Projects
           </div>
         </motion.div>
@@ -36,14 +37,14 @@ const Projects = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: index * 0.2 }}
               whileHover={{ y: -20, transition: { duration: 0.2, delay: 0 } }}
-              className="bg-gray-900 rounded-xl mx-2 my-2 border-6 border-green-700 max-w-120 
+              className="bg-gray-900 rounded-xl mx-2 my-2 border-6 border-green-700 max-w-70 md:max-w-120 lg:max-w-120 
              hover:shadow-[0_40px_60px_-10px_rgba(34,197,94,0.7)] flex flex-col 
-             min-h-[600px]"
+             min-h-[300px] lg:min-h-[600px]"
             >
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full min-h-60 max-h-60 object-cover"
+                className="w-full min-h-30 max-h-30 md:min-h-45 md:max-h-45 lg:min-h-60 lg:max-h-60 object-cover"
               />
               <div className="p-6 flex flex-col flex-grow justify-between h-full">
                 <div>
