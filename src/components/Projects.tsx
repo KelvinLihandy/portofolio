@@ -37,7 +37,7 @@ const Projects = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: index * 0.2 }}
               whileHover={{ y: -20, transition: { duration: 0.2, delay: 0 } }}
-              className="bg-gray-900 rounded-xl mx-2 my-2 border-6 border-green-700 max-w-70 md:max-w-120 lg:max-w-120 
+              className="bg-gray-900 rounded-xl mx-2 my-2 border-6 border-green-700 max-w-100 md:max-w-120 lg:max-w-120 
              hover:shadow-[0_40px_60px_-10px_rgba(34,197,94,0.7)] flex flex-col 
              min-h-[300px] lg:min-h-[600px]"
             >
@@ -48,10 +48,10 @@ const Projects = () => {
               />
               <div className="p-6 flex flex-col flex-grow justify-between h-full">
                 <div>
-                  <div className="text-xl font-bold text-white mb-2">
+                  <div className="text-base md:text-xl lg:text-xl font-bold text-white mb-2">
                     {item.title}
                   </div>
-                  <div className="text-white poppins-regular-italic mb-4 text-wrap">
+                  <div className="text-sm md:text-base lg:text-base text-white poppins-regular-italic mb-4 text-wrap">
                     {item.description}
                   </div>
                 </div>
@@ -66,7 +66,7 @@ const Projects = () => {
                           src={icon}
                           alt={name}
                           title={name}
-                          className="w-8 h-8 sm:w-6 sm:h-6 object-contain"
+                          className="w-5 h-5 md:w-7 md:h-7 lg:w-8 lg:h-8 object-contain"
                         />
                       </span>
                     ))}
@@ -78,7 +78,7 @@ const Projects = () => {
                       onClick={() => {
                         if (item.repository) window.open(item.repository, "_blank");
                       }}
-                      className={`border-2 rounded-xl px-8 py-2 ${item.repository
+                      className={`border-2 rounded-xl px-2 md:px-6 lg:px-8 py-2 ${item.repository
                         ? "border-white hover:border-green-600 transition-colors duration-300 group cursor-pointer"
                         : "border-red-800 cursor-not-allowed"
                         }`}
@@ -98,7 +98,7 @@ const Projects = () => {
                       onClick={() => {
                         if (item.deployment) window.open(item.deployment, "_blank");
                       }}
-                      className={`border-2 rounded-xl px-8 py-2 ${item.deployment
+                      className={`border-2 rounded-xl px-2 md:px-6 lg:px-8 py-2 ${item.deployment
                         ? "border-white hover:border-green-600 transition-colors duration-300 group cursor-pointer"
                         : "border-red-800 cursor-not-allowed"
                         }`}
