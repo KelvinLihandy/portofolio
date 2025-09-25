@@ -2,6 +2,7 @@ import { BrainCircuit, Briefcase, Database, Download, FolderKanban, Github, Home
 import type { IContacts, IExperiences, INavigation, IProjects, ISkills } from "./interface";
 import bconnect from "./bconnect_image.png";
 import melanoma_detector from "./melanoma-detector_image.png"
+import cv from "./Kelvin Lihandy's CV.pdf"
 
 export const menuItems: INavigation[] = [
     { name: 'Home', id: 'home', icon: Home },
@@ -11,7 +12,7 @@ export const menuItems: INavigation[] = [
 ];
 
 export const contactItems: IContacts[] = [
-    { name: "resume", link: "", icon: Download },
+    { name: "resume", link: cv, icon: Download },
     { name: "github", link: "https://github.com/KelvinLihandy", icon: Github },
     { name: "linkedin", link: "https://www.linkedin.com/in/kelvin-lihandy-ab65a4292", icon: Linkedin },
     { name: "email", link: "mailto:kelvinlihandy2005@hotmail.com", icon: Mail },
